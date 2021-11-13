@@ -34,7 +34,6 @@ dependencies {
     // Use JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
 
-
     //Testfx
     testCompile 'org.junit.jupiter:junit-jupiter-api:5.7.2'
 

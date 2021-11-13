@@ -6,14 +6,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author David Hellwig
  */
 
-public class AppTest {
+public class AppTest{
 
     App Apple;
 
@@ -23,6 +22,8 @@ public class AppTest {
     public void setup(){
         Apple = new App();
     }
+
+
 
 
 }
