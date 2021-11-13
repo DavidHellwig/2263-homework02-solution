@@ -16,6 +16,7 @@ plugins {
 
     //Jacoco
     id 'jacoco'
+
 }
 
 repositories {
@@ -34,10 +35,21 @@ dependencies {
     // Use JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
 
+    // https://mvnrepository.com/artifact/org.testfx/testfx-core
+    testImplementation 'org.testfx:testfx-core:4.0.16-alpha'
+
+
+    // https://mvnrepository.com/artifact/org.testfx/testfx-junit5
+    testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.16-alpha'
+
+
+
     //Testfx
     testCompile 'org.junit.jupiter:junit-jupiter-api:5.7.2'
 
     testCompile "org.testfx:testfx-core:4.0.16-alpha"
+
+    testCompile group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
 
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'

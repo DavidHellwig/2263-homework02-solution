@@ -8,11 +8,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.testfx.framework.junit5.ApplicationTest;
+
 /**
  * @author David Hellwig
  */
 
-public class AppTest{
+public class AppTest extends ApplicationTest{
 
     App Apple;
 
