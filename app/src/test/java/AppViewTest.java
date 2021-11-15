@@ -41,6 +41,7 @@ public class AppViewTest {
 
     @Test
     public void testGetView(){
+        assertEquals(Node.class, appView.getView());
 
     }
 }

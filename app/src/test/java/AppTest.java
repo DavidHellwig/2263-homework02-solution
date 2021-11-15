@@ -43,7 +43,7 @@ public class AppTest extends ApplicationTest{
         FxToolkit.cleanupStages();
     }
 
-
+    @Test
     public void fuck(FxRobot r){
         FxAssert.verifyThat(".display", LabeledMatchers.hasText("Display (dept.)"));
     }
