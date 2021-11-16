@@ -2,6 +2,7 @@ import edu.isu.cs.cs2263.hw02.App;
 import edu.isu.cs.cs2263.hw02.data.Course;
 import javafx.application.Platform;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
@@ -20,8 +21,10 @@ import java.util.concurrent.TimeoutException;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.api.FxRobot;
 import org.testfx.assertions.api.Assertions;
-import org.testfx.matcher.control.LabeledMatchers;
+import org.testfx.matcher.control.LabeledMatchers.*;
+import org.testfx.matcher.control.ListViewMatchers;
 import org.testfx.util.WaitForAsyncUtils;
+import static org.testfx.api.FxAssert.verifyThat;
 
 /**
  * @author David Hellwig
@@ -31,21 +34,25 @@ import org.testfx.util.WaitForAsyncUtils;
 public class AppTest extends ApplicationTest{
 
     @BeforeEach
-    public void runAppToTests() throws Exception {
-        FxToolkit.registerPrimaryStage();
-        FxToolkit.setupApplication(App::new);
-        FxToolkit.showStage();
-        WaitForAsyncUtils.waitForFxEvents(100);
+    public void setUp() throws Exception {
+        ApplicationTest.launch(App.class);
+    }
+
+    @Override
+    public void start(Stage stage){
+        stage.show();
     }
 
     @AfterEach
-    public void stopApp() throws TimeoutException {
-        FxToolkit.cleanupStages();
+    public void reset() throws TimeoutException{
+        FxToolkit.hideStage();
+        release(new KeyCode[]{});
+        release(new MouseButton[]{});
     }
 
     @Test
-    public void fuck(FxRobot r){
-        FxAssert.verifyThat(".display", LabeledMatchers.hasText("Display (dept.)"));
+    public void testPaneVisible(){
+        verifyThat("#display", Node::isVisible);
     }
 
 

@@ -21,7 +21,6 @@ import lombok.Getter;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.materialdesign2.MaterialDesignF;
 import org.kordamp.ikonli.materialdesign2.MaterialDesignP;
-
 import java.util.Map;
 import java.util.Optional;
 import java.util.Vector;

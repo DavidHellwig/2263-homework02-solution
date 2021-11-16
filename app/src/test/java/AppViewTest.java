@@ -25,7 +25,8 @@ public class AppViewTest {
 
     @BeforeAll
     public void setUp(){
-       appView = new AppView(app) {
+
+        appView = new AppView(app) {
            @Override
            public void initView() {
 
@@ -39,10 +40,23 @@ public class AppViewTest {
 
     }
 
+    /**
+     * Test to see if appview even exists
+     */
     @Test
-    public void testGetView(){
-        assertEquals(Node.class, appView.getView());
+    public void testConstructor(){
+        assertNotNull(appView);
+
 
     }
+
+    @Test
+    public void testGetView(){
+        AppView mockedView = mock(AppView.class);
+        Node node = mockedView.getView();
+        assertNull(node);
+
+    }
+
 }
 

@@ -90,6 +90,11 @@ javafx {
 
 test {
     finalizedBy jacocoTestReport // report is always generated after tests run
+    if (System.getProperty('DEBUG', 'false') == 'true') {
+        jvmArgs '-Xdebug',
+                '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=10999'
+    }
+    jvmArgs "-Dheadless=${project.hasProperty('headless') ? project.headless : false}"
 }
 jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
