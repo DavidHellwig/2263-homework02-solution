@@ -25,7 +25,11 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Vector;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class App extends Application {
+    private static final Logger logger = LogManager.getLogger(App.class);
 
     private Vector<Course> courses;
     private AppView currentView;
@@ -61,6 +65,7 @@ public class App extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
+        logger.trace("Hello from Log4j 2");
         primaryStage.setTitle("Course View");
 
         Button display = new Button("Display (dept.)");

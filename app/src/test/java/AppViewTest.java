@@ -1,5 +1,6 @@
 import edu.isu.cs.cs2263.hw02.App;
 import edu.isu.cs.cs2263.hw02.views.AppView;
+import edu.isu.cs.cs2263.hw02.views.DisplayListView;
 import javafx.scene.Node;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -27,16 +28,16 @@ public class AppViewTest {
     public void setUp(){
 
         appView = new AppView(app) {
-           @Override
-           public void initView() {
+            @Override
+            public void initView() {
 
-           }
+            }
 
-           @Override
-           public void updateData() {
+            @Override
+            public void updateData() {
 
-           }
-       };
+            }
+        };
 
     }
 
@@ -50,13 +51,6 @@ public class AppViewTest {
 
     }
 
-    @Test
-    public void testGetView(){
-        AppView mockedView = mock(AppView.class);
-        Node node = mockedView.getView();
-        assertNull(node);
-
-    }
 
 }
 
