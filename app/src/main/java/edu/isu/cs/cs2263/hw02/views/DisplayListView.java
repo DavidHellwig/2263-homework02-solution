@@ -8,7 +8,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class DisplayListView extends AppView {
 
     ListView<Course> lstCourses;
@@ -19,6 +21,7 @@ public class DisplayListView extends AppView {
 
     @Override
     public void initView() {
+        log.info("initView method called in DisplayListView");
         lstCourses = new ListView<>();
 
         Label lbl = new Label("Courses");
@@ -34,6 +37,7 @@ public class DisplayListView extends AppView {
 
     @Override
     public void updateData() {
+        log.info("updateData method called in DisplayListView");
         int index = parent.getSelectedDepartment();
         String code = Course.CODES[index];
 

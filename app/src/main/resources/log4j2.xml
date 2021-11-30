@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="ALL">
+<Configuration>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
+        <File name="log" fileName="logs/app.log">
+            <PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
     </Appenders>
+
     <Loggers>
-        <Root>
-            <AppenderRef ref="console"/>
+        <Logger name="edu.isu.cs.cs2263" level="INFO"/>
+        <Root level="trace">
+            <AppenderRef ref="Console"/>
+            <appender-ref ref="log" level="ERROR"/>
         </Root>
-        <Logger name="com.App" level="ALL" additivity="true">
-            <AppenderRef ref="fileLogger" level="ALL"/>
-        </Logger>
     </Loggers>
 </Configuration>

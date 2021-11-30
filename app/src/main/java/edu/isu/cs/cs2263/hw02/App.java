@@ -65,7 +65,7 @@ public class App extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
-        logger.trace("Hello from Log4j 2");
+        logger.info("App Class launched");
         primaryStage.setTitle("Course View");
 
         Button display = new Button("Display (dept.)");
@@ -92,6 +92,7 @@ public class App extends Application {
             // update the display button
         });
         for (int i = 0; i < Course.CODES.length; i++) {
+            logger.info(Course.DEPTS[i] + " added to Depts");
             depts.getItems().add(String.format("%s (%s)", Course.DEPTS[i], Course.CODES[i]));
         }
         depts.getSelectionModel().select(0);
@@ -136,6 +137,7 @@ public class App extends Application {
     }
 
     private void setView(String viewName) {
+        logger.info("setView() method called in App");
         mainLayout.getChildren().remove(currentView.getView());
         currentView = views.get(viewName);
         mainLayout.setCenter(currentView.getView());
@@ -153,6 +155,7 @@ public class App extends Application {
     }
 
     public void exit() {
+        logger.info("Exit button clicked in App");
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
         alert.setContentText("Are you sure you want to exit?");
@@ -160,20 +163,26 @@ public class App extends Application {
         Optional<ButtonType> result = alert.showAndWait();
         result.ifPresent(btnType -> {
             if (btnType.getButtonData().isDefaultButton())
+                logger.info("System exit called");
                 System.exit(0);
         });
     }
 
     public int getSelectedDepartment() {
+        logger.info("getSelectedDepartment() method called in App");
         return depts.getSelectionModel().getSelectedIndex();
     }
 
     public void showWelcome() {
+        logger.info("showWelcome() method called in App");
         setView("Welcome");
     }
 
     public void addCourse(Course course) {
+        logger.info("addCourse() method called in App");
+        logger.info(course.toString() + "was added to courses");
         courses.add(course);
+
     }
 
     public static void main(String[] args) {
