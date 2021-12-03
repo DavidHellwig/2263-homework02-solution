@@ -15,10 +15,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
+import lombok.extern.log4j.Log4j2;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.materialdesign2.MaterialDesignP;
 import org.kordamp.ikonli.materialdesign2.MaterialDesignR;
-
+@Log4j2
 public class CoursesFormView extends AppView {
 
     private TextField tfName;
@@ -33,6 +34,7 @@ public class CoursesFormView extends AppView {
 
     @Override
     public void initView() {
+        log.info("initView method called in CourseFormView");
         lblMessage = new Label("");
 
         tfName = new TextField();
@@ -103,6 +105,7 @@ public class CoursesFormView extends AppView {
     }
 
     private void validateAndAdd() {
+        log.info("validateAndAdd method called in CourseFormView");
         if (tfName.getText().isBlank()) {
             lblMessage.setText("Error: Name cannot be empty!");
             lblMessage.setTextFill(Color.RED);
@@ -117,6 +120,7 @@ public class CoursesFormView extends AppView {
     }
 
     private void reset() {
+        log.info("reset method called in CourseFormView");
         lblMessage.setText("");
         tfName.setText("");
         spnCredits.decrement(spnCredits.getValue());
@@ -125,6 +129,7 @@ public class CoursesFormView extends AppView {
 
     @Override
     public void updateData() {
+        log.info("updateData method called in CourseFormView");
         code = Course.CODES[parent.getSelectedDepartment()];
         reset();
     }

@@ -1,5 +1,12 @@
 package edu.isu.cs.cs2263.hw02.data;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.extern.log4j.Log4j2;
+
+@Getter
+@Setter
 public class Course {
 
     public static final String[] CODES = { "CS", "CHEM", "PHYS", "MATH", "BTNY", "ZOO" };
@@ -19,7 +26,7 @@ public class Course {
         this.credits = credits;
     }
 
-    public int getNumber() {
+    /*public int getNumber() {
         return number;
     }
 
@@ -49,7 +56,7 @@ public class Course {
 
     public void setCode(String code) {
         this.code = code;
-    }
+    }*/
 
     @Override
     public String toString() {
